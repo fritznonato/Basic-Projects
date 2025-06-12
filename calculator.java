@@ -52,7 +52,7 @@ public class Calculator {
 					result = multiply(num1, num2);
 					break;
 				case '/':
-					resultString = divide(num1, num2); //divide already returns a String
+					result = divide(num1, num2); //divide already returns a String
 					break;
 				default:
 					System.out.println("Invalid operation. Please use +, -, *, or /.");
