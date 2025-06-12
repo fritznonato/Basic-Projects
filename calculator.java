@@ -62,7 +62,7 @@ public class Calculator {
 			System.out.println("-----------------");
 			// Check if the result from divide() was an error message
 			if (validOperation) {
-				System.out.printf("The result is: %.2f\n" + result);
+				System.out.printf("The result is: %.2f\n", result);
 			} 
 		} catch (InputMismatchException ime) {
 			System.out.println("-----------------");
