@@ -21,7 +21,6 @@ public class Calculator {
 		if (n2 == 0) throw new ArithmeticException("Division by zero.");
 		return n1 / n2; // Return result and accomodate error messages
 		}
-	}
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in); // Create a Scanner object
@@ -39,43 +38,43 @@ public class Calculator {
 			System.out.println("Enter the second number: ");
 			double num2 = scanner.nextDouble();
 
-			String resultString = ""; // To store a result of error message
-
+			double result = 0;
+			boolean validOperation = true;
+			
 			switch (operation) {
 				case '+':
-					resultString = String.valueOf(add(num1, num2));
+					result = add(num1, num2);
 					break;
 				case '-':
-					resultString = String.valueOf(subtract(num1, num2));
+					result = subtract(num1, num2);
 					break;
 				case '*':
-					resultString = String.valueOf(multiply(num1, num2));
+					result = multiply(num1, num2);
 					break;
 				case '/':
 					resultString = divide(num1, num2); //divide already returns a String
 					break;
 				default:
-					resultString = "Invalid operation. Please use +, -, *, or /.";
-					break;
+					System.out.println("Invalid operation. Please use +, -, *, or /.");
+					validOperation = false;
 			}
 
 			System.out.println("-----------------");
 			// Check if the result from divide() was an error message
-			if (resultString.startsWith("Error!")) {
-				System.out.println(resultString);
-			} else {
-				// If it's not an error, try to parse it as a double for formatting
-				// Or just print resultString directly
-				System.out.println("The result is: " + resultString); 
+			if (validOperation) {
+				System.out.println("The result is: " + result);
 			} 
 		} catch (InputMismatchException ime) {
 			System.out.println("-----------------");
 			System.out.println("Invalid number entered. Please enter numeric value only");
+		} catch (ArithmeticException ae) {
+			System.out.println("-----------------");
+			System.out.println("Error: " + ae.getMessage());
 		} catch (Exception e) {
-				System.out.println("-----------------");
-				System.out.println("An unexpected error occurred: " + e.getMessage());
+			System.out.println("-----------------");
+			System.out.println("An unexpected error occurred: " + e.getMessage());
 		} finally {
-				scanner.close(); // Close the scanner to free resources
+			scanner.close(); // Close the scanner to free resources
 		}
 	}
 }
