@@ -69,7 +69,9 @@ public class Calculator {
 				// Or just print resultString directly
 				System.out.println("The result is: " + resultString); 
 			} 
-
+		} catch (InputMismatchException ime) {
+			System.out.println("-----------------");
+			System.out.println("Invalid number entered. Please enter numeric value only");
 		} catch (Exception e) {
 				System.out.println("-----------------");
 				System.out.println("An unexpected error occurred: " + e.getMessage());
