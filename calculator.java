@@ -17,11 +17,10 @@ public class Calculator {
 		return n1 * n2;
 	}
 
-	public static String divide(double n1, double n2) {
-		if (n2 == 0) {
-			return "Error! Division by zero.";
+	public static double divide(double n1, double n2) throws ArithmeticException {
+		if (n2 == 0) throw new ArithmeticException("Division by zero.";
+		return n1 / n2; // Return result and accomodate error messages
 		}
-		return String.valueOf(n1 / n2); // Return result as a string to accomodate error message
 	}
 
 	public static void main(String[] args) {
