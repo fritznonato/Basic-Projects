@@ -52,7 +52,7 @@ public class Calculator {
 					result = multiply(num1, num2);
 					break;
 				case '/':
-					result = divide(num1, num2); //divide already returns a String
+					result = divide(num1, num2);
 					break;
 				default:
 					System.out.println("Invalid operation. Please use +, -, *, or /.");
@@ -62,7 +62,7 @@ public class Calculator {
 			System.out.println("-----------------");
 			// Check if the result from divide() was an error message
 			if (validOperation) {
-				System.out.println("The result is: " + result);
+				System.out.println("The result is: %.2f\n" + result);
 			} 
 		} catch (InputMismatchException ime) {
 			System.out.println("-----------------");
